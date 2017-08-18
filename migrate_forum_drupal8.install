@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains migrate_forum_drupal8.install.
+ */
+
+/**
+ * Implements hook_uninstall().
+ *
+ * Removes stale migration configs during uninstall.
+ */
+function migrate_forum_drupal8_uninstall() {
+  $query = \Drupal::database()->select('config', 'c');
+  $query->fields('c', ['name']);
+  $query->condition('name', $query->escapeLike('migrate_plus.') . '%', 'LIKE');
+
+  $config_names = $query->execute()->fetchAll();
+
+  // Delete each config using configFactory.
+  foreach ($config_names as $config_name) {
+    \Drupal::configFactory()->getEditable($config_name->name)->delete();
+  }
+}
