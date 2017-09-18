@@ -1,2 +1,2 @@
-# migrate_forum_drupal8
+# custom_migration_forum
 Example migrate forum Drupal 7 to Drupal 8.

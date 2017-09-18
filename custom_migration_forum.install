@@ -10,7 +10,7 @@
  *
  * Removes stale migration configs during uninstall.
  */
-function migrate_forum_drupal8_uninstall() {
+function custom_migration_forum_uninstall() {
   $query = \Drupal::database()->select('config', 'c');
   $query->fields('c', ['name']);
   $query->condition('name', $query->escapeLike('migrate_plus.') . '%', 'LIKE');

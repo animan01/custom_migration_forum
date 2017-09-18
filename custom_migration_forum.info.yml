@@ -1,0 +1,11 @@
+name: Custom Migration Forum
+description: Custom module for migrating forum from a Drupal 7 site.
+package: Migrations
+type: module
+core: 8.x
+dependencies:
+  - drupal:migrate
+  - drupal:migrate_drupal
+  - drupal:forum
+  - migrate_plus:migrate_plus  (>=4.0-beta1)
+  - migrate_tools:migrate_tools  (>=4.0-beta1)

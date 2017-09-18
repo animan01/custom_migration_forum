@@ -1,0 +1,47 @@
+id: custom_migration_forum_forum
+label: Custom forum migration
+migration_group: Custom Migration Forum
+dependencies:
+  enforced:
+    module:
+      - custom_migration_forum
+source:
+  plugin: custom_migration_forum_forum
+  node_type: forum
+  target: migrate
+migration_dependencies:
+  required:
+    - custom_migration_forum_term
+    - d7_user
+    - d7_filter_format
+process:
+  nid: tnid
+  vid: vid
+  langcode:
+    plugin: default_value
+    source: language
+    default_value: 'en'
+  title: title
+  type:
+    plugin: default_value
+    default_value: forum
+  'body/value': body_value
+  'body/format': body_format
+  uid:
+      plugin: migration
+      migration: d7_user
+      source: node_uid
+  status: status
+  created: created
+  changed: changed
+  promote: promote
+  sticky: sticky
+  revision_uid: revision_uid
+  revision_log: log
+  revision_timestamp: timestamp
+  taxonomy_forums:
+      plugin: migration
+      migration: custom_migration_forum_term
+      source: taxonomy_forums
+destination:
+  plugin: entity:node

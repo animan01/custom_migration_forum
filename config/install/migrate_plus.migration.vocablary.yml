@@ -1,0 +1,29 @@
+id: custom_migration_forum_vocabulary
+label: Taxonomy vocabulary forum
+migration_group: Custom Migration Forum
+dependencies:
+  enforced:
+    module:
+      - custom_migration_forum
+source:
+  plugin: custom_migration_forum_vocabulary
+  target: migrate
+process:
+  vid:
+    -
+      plugin: machine_name
+      source: machine_name
+    -
+      plugin: make_unique_entity_field
+      entity_type: taxonomy_vocabulary
+      field: vid
+      length: 32
+      migrated: true
+  label: name
+  name: name
+  description: description
+  hierarchy: hierarchy
+  module: module
+  weight: weight
+destination:
+  plugin: entity:taxonomy_vocabulary

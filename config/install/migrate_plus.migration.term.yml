@@ -1,0 +1,26 @@
+id: custom_migration_forum_term
+label: Taxonomy terms forum
+migration_group: Custom Migration Forum
+dependencies:
+  enforced:
+    module:
+      - custom_migration_forum
+source:
+  plugin: custom_migration_forum_term
+  target: migrate
+process:
+  tid: tid
+  vid:
+    plugin: migration
+    migration: custom_migration_forum_vocabulary
+    source: vid
+  name: name
+  description: description
+  weight: weight
+  parent: parent
+  changed: timestamp
+destination:
+  plugin: entity:taxonomy_term
+migration_dependencies:
+  required:
+    - custom_migration_forum_vocabulary
