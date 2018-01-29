@@ -1,0 +1,36 @@
+id: custom_migration_forum_forum_comment
+label: Comments forum
+migration_group: Custom Migration Forum
+source:
+  plugin: custom_migration_forum_forum_comment
+  target: migrate
+  constants:
+    entity_type: node
+process:
+  # If you are using this file to build a custom migration consider removing
+  # the cid field to allow incremental migrations.
+  cid: cid
+  pid:
+    plugin: migration_lookup
+    migration: custom_migration_forum_forum_comment
+    source: pid
+  entity_id: nid
+  entity_type: 'constants/entity_type'
+  comment_type: comment_type
+  field_name: comment_type
+  subject: subject
+  uid: uid
+  name: name
+  mail: mail
+  homepage: homepage
+  hostname: hostname
+  created: created
+  changed: changed
+  status: status
+  thread: thread
+  comment_body: comment_body
+destination:
+  plugin: entity:comment
+migration_dependencies:
+  required:
+    - custom_migration_forum_forum

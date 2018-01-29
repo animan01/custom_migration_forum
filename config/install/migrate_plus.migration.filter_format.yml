@@ -1,0 +1,29 @@
+id: custom_migration_forum_filter_format
+label: Filter format configuration
+migration_group: Custom Migration Forum
+source:
+  plugin: d7_filter_format
+process:
+  format: format
+  name: name
+  cache: cache
+  weight: weight
+  filters:
+    plugin: sub_process
+    source: filters
+    key: '@id'
+    process:
+      id:
+        plugin: filter_id
+        bypass: true
+        source: name
+        map: { }
+      settings:
+        plugin: filter_settings
+        source: settings
+      status:
+        plugin: default_value
+        default_value: true
+      weight: weight
+destination:
+  plugin: entity:filter_format

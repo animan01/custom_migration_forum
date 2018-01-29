@@ -7,5 +7,5 @@ dependencies:
   - drupal:migrate
   - drupal:migrate_drupal
   - drupal:forum
-  - migrate_plus:migrate_plus  (>=4.0-beta1)
-  - migrate_tools:migrate_tools  (>=4.0-beta1)
+  - migrate_plus:migrate_plus  (>=4.0-beta2)
+  - migrate_tools:migrate_tools  (>=4.0-beta2)

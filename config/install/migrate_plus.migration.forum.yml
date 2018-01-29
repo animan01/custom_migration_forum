@@ -12,8 +12,8 @@ source:
 migration_dependencies:
   required:
     - custom_migration_forum_term
-    - d7_user
-    - d7_filter_format
+    - custom_migration_forum_user
+    - custom_migration_forum_filter_format
 process:
   nid: tnid
   vid: vid
@@ -29,7 +29,7 @@ process:
   'body/format': body_format
   uid:
       plugin: migration
-      migration: d7_user
+      migration: custom_migration_forum_user
       source: node_uid
   status: status
   created: created
