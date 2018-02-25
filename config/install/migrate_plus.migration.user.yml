@@ -1,6 +1,10 @@
 id: custom_migration_forum_user
 label: User accounts
 migration_group: Custom Migration Forum
+dependencies:
+  enforced:
+    module:
+      - custom_migration_forum
 class: Drupal\user\Plugin\migrate\User
 source:
   plugin: d7_user

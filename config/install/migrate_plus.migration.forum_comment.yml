@@ -1,6 +1,10 @@
 id: custom_migration_forum_forum_comment
 label: Comments forum
 migration_group: Custom Migration Forum
+dependencies:
+  enforced:
+    module:
+      - custom_migration_forum
 source:
   plugin: custom_migration_forum_forum_comment
   target: migrate
